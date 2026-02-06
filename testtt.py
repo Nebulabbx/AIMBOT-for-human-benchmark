@@ -5,22 +5,17 @@ import mss
 import win32api
 import win32con
 
-# ===================== CONFIG =====================
-
 # Screen region to scan (CHANGE THIS)
 SCAN_REGION = {
     'top': 300, 'left': 454, 'width': 1500, 'height': 800
 }
 
 # Target color (BGR, NOT RGB)
-# Example: RGB (149,195,232) -> BGR (232,195,149)
 TARGET_COLOR = np.array([232, 195, 149])
 TOLERANCE = 1
 
 CLICK_DELAY = 0.01 # seconds between clicks
 LOOP_DELAY = 0.001  # main loop delay
-
-# ===================== SETUP =====================
 
 sct = mss.mss()
 
@@ -50,10 +45,8 @@ def find_color(frame, target, tol):
     return None
 
 
-# ===================== MAIN LOOP =====================
-
 print("Aimbot running...")
-print("Press CTRL+C to stop")
+print("Press CTRL+C to stop") #Too lazy to add a toggle and kill switch
 
 while True:
     frame = grab_screen()
@@ -69,5 +62,3 @@ while True:
 
     time.sleep(LOOP_DELAY)
 
-
-print("Terminated")
